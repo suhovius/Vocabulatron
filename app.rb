@@ -29,6 +29,6 @@ end
 
 # Controllers
 get '/' do
-  "Hello visitor nº" + Counter.increment.to_s
+  "Hello visitor #" + Counter.increment.to_s
 end
 
