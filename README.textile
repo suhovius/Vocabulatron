@@ -2,10 +2,7 @@ h1. Vocabulatron
 
 Simple English vocabulary app.
 
-Experimanent with Sinatra and Mongoid
-
-h1. Sinatra Mongoid App
-
+Experiment with Sinatra and Mongoid.
 "Sinatra":http://www.sinatrarb.com application configured for using a MongoDB database through "Mongoid":http://mongoid.org.
 It works out of the box with Heroku and the "MongoHQ add-on":http://addons.heroku.com/mongohq.
 
