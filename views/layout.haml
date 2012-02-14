@@ -1,0 +1,11 @@
+!!!
+%html
+  %head
+    %title= APP_NAME
+    %meta{"http-equiv" => "Content-Type", :content => "text/html; charset=utf-8"}
+    %link{"rel" => "stylesheet", "href" => "css/application.css", "type" => "text/css"}
+      
+%body
+  #header.round_corners= APP_NAME
+  #auth
+  #content= yield

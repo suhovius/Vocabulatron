@@ -1,6 +1,10 @@
+# Required gems and modules
 require 'rubygems'
 require 'sinatra'
 require 'mongoid'
+require 'haml'
+
+APP_NAME = "Vocabulatron"
 
 # MongoDB configuration
 Mongoid.configure do |config|
@@ -12,6 +16,9 @@ Mongoid.configure do |config|
     config.master = Mongo::Connection.from_uri("mongodb://localhost:27017").db('test')
   end
 end
+
+
+
 
 # Models
 class Counter
@@ -29,6 +36,7 @@ end
 
 # Controllers
 get '/' do
-  "Hello visitor #" + Counter.increment.to_s
+  @data = "Hello visitor #" + Counter.increment.to_s
+  haml :index
 end
 
