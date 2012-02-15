@@ -2,3 +2,4 @@ body { background: DarkSeaGreen; padding: 10px;}
 #header { background: LavenderBlush; height: 30px; font-size: 30px; padding: 10px; color: ForestGreen; }
 .round_corners { -moz-border-radius: 5px; -webkit-border-radius: 5px;}
 h2 {color: Beige;}
+#word { }

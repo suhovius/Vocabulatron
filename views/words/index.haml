@@ -1,0 +1,12 @@
+%h2 #{title}
+%a(href="/words/new") New Word
+%hr
+#words
+- words.each do |word|
+  #word
+    #word_original
+      %a(href='/words.#{word._id}') #{word.original}
+      %a(href='/edit.#{word._id}') Edit
+      &nbsp;
+      %a(class='destroy' href='/#{word._id}') Delete
+
