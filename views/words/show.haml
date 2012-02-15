@@ -1,0 +1,17 @@
+%h2 #{title}
+
+%p#word_original
+  #{word.original}
+
+%p#word_date
+  updated at #{word.updated_at}
+
+%p#word_date 
+  created at #{word.created_at}
+ 
+%p 
+  %a(href='/words.#{word._id}.edit') Edit
+  &nbsp;
+  %a(class='destroy' href='/words.#{word._id}') Delete
+  &nbsp;
+  %a(href='/words') Back
