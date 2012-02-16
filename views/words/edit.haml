@@ -1,11 +1,6 @@
 %h2 #{title}
 %fieldset
   %p Edit Word
-  %form(action="/words/#{word._id}" method="post")
-    %input(type= "hidden" name= "_method" value="PUT")
-    %label(for= "original") Original
-    %br
-    %input(type= "text" name= "word[original]" value = "#{word.original}")
-    %input(type= "submit" value= "Save" class= "button")
-    &nbsp;
+  =haml :'/words/_form', :layout => false, :locals => {:url => "/words/#{word._id}", :method => 'put', :word => @word}
+  &nbsp;
   %a(href="/words") Back

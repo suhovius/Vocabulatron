@@ -1,10 +1,6 @@
 %h2 #{title}
 %fieldset
   %p Create a new Word
-  %form(action="/words" method="post")
-    %label(for= "original") Original
-    %br
-    %input(type= "text" name= "word[original]")
-    %input(type= "submit" value= "Save" class= "button")
-    &nbsp;
+  =haml :'/words/_form', :layout => false, :locals => {:url => '/words', :method => 'post', :word => nil}
+  &nbsp;
   %a(href="/words") Back

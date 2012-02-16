@@ -1,0 +1,7 @@
+%form(action="#{url}" method="#{['post', 'put', 'delete'].include?(method) ? 'post' : 'get'}")
+  - if ['put', 'delete'].include?(method)
+    %input(type= "hidden" name= "_method" value="#{method.upcase}")
+  %label(for= "original") Original
+  %br
+  %input(type= "text" name= "word[original]" value = "#{word ? word.original : nil}")
+  %input(type= "submit" value= "Save" class= "button")
