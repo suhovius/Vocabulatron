@@ -3,4 +3,11 @@ class Word
   include Mongoid::Timestamps
   
   field :original, type: String
+  
+  key :original
+  
+  validates_uniqueness_of :original
+  
+  index :original, unique: true
+  
 end

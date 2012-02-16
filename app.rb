@@ -47,7 +47,7 @@ class Vocabulatron < Sinatra::Base
   end
   
   # new word
-  get '/words/new' do
+  get '/words/add_new' do
     haml :'words/new', :locals => { :title => "New Word"}
   end  
   
