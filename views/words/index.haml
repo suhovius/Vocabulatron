@@ -5,8 +5,8 @@
 - words.each do |word|
   #word
     #word_original
-      %a(href='/words.#{word._id}') #{word.original}
-      %a(href='/edit.#{word._id}') Edit
+      %a(href='/words/#{word._id}') #{word.original}
+      %a(href='/words/#{word._id}/edit') Edit
       &nbsp;
       %a(class='destroy' href='/#{word._id}') Delete
 

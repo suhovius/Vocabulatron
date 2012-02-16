@@ -46,12 +46,6 @@ class Vocabulatron < Sinatra::Base
     haml :'words/index', :locals => { :title => "Vocabulary", :words => @words }
   end
   
-  # view a word
-  get '/words.:id' do |id|
-    @word = Word.find(id)
-    haml :'words/show', :locals => { :title => "Word", :word => @word}
-  end  
-  
   # new word
   get '/words/new' do
     haml :'words/new', :locals => { :title => "New Word"}
@@ -69,21 +63,27 @@ class Vocabulatron < Sinatra::Base
     end
   end
   
+  # view a word
+  get '/words/:id' do
+    @word = Word.find(params[:id])
+    haml :'words/show', :locals => { :title => "Word", :word => @word}
+  end  
+  
   # edit word
-  get '/words.:id./edit' do |id|
-    @word = Word.find(id)
+  get '/words/:id/edit' do
+    @word = Word.find(params[:id])
     haml :'words/edit', :locals => { :title => "Edit Word", :word => @word}
   end
   
-  put '/words.:id' do |id|
-    @word = Word.find(id)
+  put '/words/:id' do
+    @word = Word.find(params[:id])
     @word.update_attributes(params[:word])
-    redirect '/words.'+id
+    redirect '/words/'+params[:id]
   end
   
   #delete blog
-  delete '/words.:id' do |id|
-    @word = Word.find(id)
+  delete '/words/:id' do
+    @word = Word.find(params[:id])
     @word.delete
     redirect '/'
   end

@@ -10,8 +10,8 @@
   created at #{word.created_at}
  
 %p 
-  %a(href='/words.#{word._id}.edit') Edit
+  %a(href='/words/#{word._id}/edit') Edit
   &nbsp;
-  %a(class='destroy' href='/words.#{word._id}') Delete
+  %a(class='destroy' href='/words/#{word._id}') Delete
   &nbsp;
   %a(href='/words') Back
