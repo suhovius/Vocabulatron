@@ -85,7 +85,9 @@ class Vocabulatron < Sinatra::Base
   delete '/words/:id' do
     @word = Word.find(params[:id])
     @word.delete
-    redirect '/'
+    
+    @words = Word.all
+    haml :'words/index', :locals => { :title => "Vocabulary", :words => @words }, :layout => false
   end
   
   # start the server if ruby file executed directly
