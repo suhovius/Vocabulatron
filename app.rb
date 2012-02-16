@@ -36,14 +36,18 @@ class Vocabulatron < Sinatra::Base
     super
   end
 
+  def get_all_words(layout = true)
+    @words = Word.all
+    haml :'words/index', :locals => { :title => "Vocabulary", :words => @words }, :layout => layout
+  end
+
   get '/' do
     redirect '/words'
   end
   
   # list all words
   get '/words' do
-    @words = Word.all
-    haml :'words/index', :locals => { :title => "Vocabulary", :words => @words }
+    get_all_words
   end
   
   # new word
@@ -85,9 +89,7 @@ class Vocabulatron < Sinatra::Base
   delete '/words/:id' do
     @word = Word.find(params[:id])
     @word.delete
-    
-    @words = Word.all
-    haml :'words/index', :locals => { :title => "Vocabulary", :words => @words }, :layout => false
+    get_all_words(false)
   end
   
   # start the server if ruby file executed directly
