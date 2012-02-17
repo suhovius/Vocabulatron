@@ -8,6 +8,7 @@ Experiment with Sinatra and Mongoid.
 App is made by modular approach.
 
 h2. Configuration
+
   Create file *config/settings.yml* according to the example in *config/settings.yml.example* and put there your API KEY
   
   You can get Bing API key by following this "instructions":http://www.microsoft.com/web/post/using-the-free-bing-translation-apis
