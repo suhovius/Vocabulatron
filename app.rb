@@ -1,8 +1,13 @@
-# Required gems and modules
+# Required gems
 require 'rubygems'
 require 'sinatra/base'
 require 'mongoid'
 require 'haml'
+require 'settingslogic'
+require 'bing_translator'
+
+# Required files
+require './models/settings'
 require './models/word'
 
 class Vocabulatron < Sinatra::Base
@@ -31,7 +36,7 @@ class Vocabulatron < Sinatra::Base
       config.master = Mongo::Connection.from_uri("mongodb://localhost:27017").db('vocabulatron_development')
     end
   end
-  
+     
   def initialize
     super
   end
@@ -40,7 +45,7 @@ class Vocabulatron < Sinatra::Base
     @words = Word.all
     haml :'words/index', :locals => { :title => "Vocabulary", :words => @words }, :layout => layout
   end
-
+  
   get '/' do
     redirect '/words'
   end
@@ -70,16 +75,22 @@ class Vocabulatron < Sinatra::Base
   # view a word
   get '/words/:id' do
     @word = Word.find(params[:id])
-    haml :'words/show', :locals => { :title => "Word", :word => @word}
+    
+    @english = @word.translation
+    
+    haml :'words/show', :locals => { :title => "Word", :word => @word, :translation => @english }
   end  
   
   # edit word
   get '/words/:id/edit' do
-    @word = Word.find(params[:id])
+    @word = Word.find(params[:id]) 
     haml :'words/edit', :locals => { :title => "Edit Word", :word => @word}
   end
   
   put '/words/:id' do
+  
+    puts "Params = #{params[:word]}"
+      
     @word = Word.find(params[:id])
     @word.update_attributes(params[:word])
     redirect '/words/'+params[:id]

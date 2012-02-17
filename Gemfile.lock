@@ -6,6 +6,8 @@ GEM
       builder (~> 2.1.2)
       i18n (~> 0.4.1)
     activesupport (3.0.0)
+    bing_translator (0.0.3)
+      nokogiri (~> 1.5.0)
     bson (1.1.1)
     bson_ext (1.1.1)
     builder (2.1.2)
@@ -19,9 +21,12 @@ GEM
       mongo (~> 1.1)
       tzinfo (~> 0.3.22)
       will_paginate (~> 3.0.pre)
+    nokogiri (1.5.0)
+    nokogiri (1.5.0-x86-mingw32)
     rack (1.2.1)
     rack-test (0.6.1)
       rack (>= 1.0)
+    settingslogic (2.0.8)
     sinatra (1.1.0)
       rack (~> 1.1)
       tilt (~> 1.1)
@@ -39,8 +44,10 @@ PLATFORMS
 
 DEPENDENCIES
   activesupport
+  bing_translator (~> 0.0.2)
   bson_ext (= 1.1.1)
   haml
   mongoid
+  settingslogic
   sinatra
   sinatra-assetpack
