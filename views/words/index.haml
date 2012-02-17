@@ -2,13 +2,21 @@
 %a(href="/words/add_new") New Word
 %hr
 #words
-- words.each do |word|
-  #word
-    #word_original
-      %a(href='/words/#{word._id}') #{word.original}
-      %a(href='/words/#{word._id}/edit') Edit
-      &nbsp;
-      %a(class='destroy' href='/words/#{word._id}') Delete
+  %table
+    %th Original
+    %th Language
+    %th Translation
+    %th{:colspan => "2"} Actions
+    - words.each do |word|
+      %tr
+        %td
+          %a(href='/words/#{word._id}') #{word.original}
+        %td= word.lang
+        %td= word.translation
+        %td
+          %a(href='/words/#{word._id}/edit') Edit
+        %td  
+          %a(class='destroy' href='/words/#{word._id}') Delete
       
       
  
