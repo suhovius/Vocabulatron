@@ -14,7 +14,7 @@ class Word
   index :original, unique: true
   
   
-  before_save :set_lang
+  before_save :set_lang_and_translation
   
   def translate(from = self.lang, to = 'ru')
     translator = BingTranslator.new("#{Settings.bing_translator_api_key}")
@@ -22,7 +22,7 @@ class Word
   end
   
   protected
-    def set_lang
+    def set_lang_and_translation
       translator = BingTranslator.new("#{Settings.bing_translator_api_key}")
       self.lang = translator.detect self.original
       self.translation = self.translate

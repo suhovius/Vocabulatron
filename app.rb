@@ -87,10 +87,7 @@ class Vocabulatron < Sinatra::Base
     haml :'words/edit', :locals => { :title => "Edit Word", :word => @word}
   end
   
-  put '/words/:id' do
-  
-    puts "Params = #{params[:word]}"
-      
+  put '/words/:id' do    
     @word = Word.find(params[:id])
     @word.update_attributes(params[:word])
     redirect '/words/'+params[:id]
