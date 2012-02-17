@@ -4,6 +4,13 @@ Simple English vocabulary app.
 
 Experiment with Sinatra and Mongoid.
 "Sinatra":http://www.sinatrarb.com application configured for using a MongoDB database through "Mongoid":http://mongoid.org.
-It works out of the box with Heroku and the "MongoHQ add-on":http://addons.heroku.com/mongohq.
 
-Thanks "Sérgio Santos":http://sergiosantos.info for the "template":https://github.com/sdsantos/sinatra-mongoid-app.
+App is made by modular approach.
+
+h2. Configuration
+  Create file *config/settings.yml* according to the example in *config/settings.yml.example* and put there your API KEY
+  
+  You can get Bing API key by following this "instructions":http://www.microsoft.com/web/post/using-the-free-bing-translation-apis
+  
+  
+  
